@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@webserverless/fc-express": "^1.0.0",
     "axios": "^0.21.1",
     "element-china-area-data": "^5.0.2",
     "element-ui": "^2.15.5",

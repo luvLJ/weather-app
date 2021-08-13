@@ -17,9 +17,9 @@ services:
       function:
         name: weather
         description: a weather app
-        codeUri: ./code
+        codeUri: './code'
         handler: index.handler
-        memorySize: 128
+        memorySize: 256
         runtime: nodejs12
         timeout: 5
       triggers:
