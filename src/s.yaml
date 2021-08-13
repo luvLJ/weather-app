@@ -1,10 +1,14 @@
 edition: 1.0.0          #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
-name: functionApp       #  项目名称
-access: aliyun-release  #  秘钥别名
+name: weatherApp       #  项目名称
+access: firstAccessKey  #  秘钥别名
 
 services:
   weather-app: #  服务名称
     component: fc  # 组件名称
+    actions:
+      pre-deploy:
+        - run: npm run build
+          path: ./code
     props: #  组件的属性值
       region: cn-hangzhou
       service:
@@ -12,9 +16,23 @@ services:
         description: weather-service
       function:
         name: weather
-        description: a weather app based on vue
+        description: a weather app
         codeUri: ./code
         handler: index.handler
         memorySize: 128
         runtime: nodejs12
         timeout: 5
+      triggers:
+        - name: http-trigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /*
+              serviceName: weather-service
+              functionName: weather

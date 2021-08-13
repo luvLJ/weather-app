@@ -1,0 +1,33 @@
+{
+  "statefulConfig": {
+    "serviceName": "weather-service",
+    "description": "weather-service",
+    "role": "",
+    "logConfig": {
+      "project": "",
+      "logstore": "",
+      "enableRequestMetrics": false,
+      "enableInstanceMetrics": false
+    },
+    "serviceId": "e435f8b5-ac74-4b54-94bc-210e28d9244c",
+    "createdTime": "2021-08-13T08:20:31Z",
+    "vpcConfig": {
+      "vpcId": "",
+      "vSwitchIds": [],
+      "securityGroupId": "",
+      "role": ""
+    },
+    "internetAccess": true,
+    "nasConfig": {
+      "userId": -1,
+      "groupId": -1,
+      "mountPoints": []
+    },
+    "vendorConfig": null,
+    "tracingConfig": {
+      "type": null,
+      "params": null
+    },
+    "name": "weather-service"
+  }
+}
