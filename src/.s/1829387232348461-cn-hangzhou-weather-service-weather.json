@@ -1,6 +1,6 @@
 {
   "statefulConfig": {
-    "functionId": "331e9d66-774b-41e0-bb99-3a01131aacc0",
+    "functionId": "c2b2cdb5-8e79-470d-89f3-d1708ccd0efc",
     "functionName": "weather",
     "description": "a weather app",
     "runtime": "nodejs12",
@@ -8,11 +8,11 @@
     "timeout": 5,
     "initializer": "",
     "initializationTimeout": 3,
-    "codeSize": 49481505,
-    "codeChecksum": "9038545884908593853",
-    "memorySize": 128,
+    "codeSize": 49534637,
+    "codeChecksum": "10820195429284938801",
+    "memorySize": 256,
     "environmentVariables": {},
-    "createdTime": "2021-08-13T08:23:37Z",
+    "createdTime": "2021-08-13T14:19:20Z",
     "instanceConcurrency": 1,
     "customContainerConfig": null,
     "caPort": null,
