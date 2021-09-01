@@ -1,12 +1,13 @@
-const { dk } = require('@serverless-devs/dk');
+const serverless = require('@serverless-devs/fc-http')
+const express = require('express')
+const app = express()
 
-const baseHandler = (ctx) => {
-  // ctx 包含 ctx.req 可获取入参信息
-  return {
-    json: { title: 'hello serverless dk' },
-  };
-};
+app.get('/location', (req, res) => {
+  res.send('location')
+})
 
-const handler = dk(baseHandler);
+app.get('/', (req, res) => {
+  res.send('index')
+})
 
-exports.handler = handler;
+exports.handler = serverless(app)

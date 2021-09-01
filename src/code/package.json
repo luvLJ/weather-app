@@ -15,7 +15,7 @@
     "axios": "^0.21.1",
     "element-china-area-data": "^5.0.2",
     "element-ui": "^2.15.5",
-    "express": "^4.17.1",
+    "express": "^5.0.0-alpha.8",
     "vue": "^2.5.2"
   },
   "devDependencies": {

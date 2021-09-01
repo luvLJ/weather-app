@@ -10,7 +10,7 @@
     "serve": "sandbox"
   },
   "dependencies": {
-    "@serverless-devs/dk": "latest"
+    "@serverless-devs/fc-http": "latest"
   },
   "devDependencies": {
     "@serverless-devs/sandbox": "latest"

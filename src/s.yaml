@@ -1,15 +1,17 @@
 edition: 1.0.0 #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
 name: weatherApp #  项目名称
 access: default #  秘钥别名
-
+vars:
+  domain: raykie.resume.net.cn
 services:
   weather-app: #  服务名称
     component: devsapp/static-site # 这里引入的是相对路径，正式配置替换成你自己的component名称即可
     # actions:
     #   pre-deploy:
-    #     - run: npm run build
+    #     - run: npm i && npm run build
     #       path: ./code
     props:
+      domain: ${vars.domain}
       targetStaticDir: 'code/dist' # 构建出的静态资源目录
       releaseDir: '_fc_release' # 用来发布到fc 上的目录，不需要修改
       service: 'website-test'
@@ -19,15 +21,35 @@ services:
       memorySize: 512
       timeout: 60
   api:
-    component: devsapp/jamstack-api
+    component: devsapp/fc
     actions:
       pre-deploy:
         - run: npm install
           path: functions
     props:
       region: cn-hangzhou
-      app:
-        name: weather-app
-      sourceCode: functions
-      route:
-        - /
+      service:
+        name: weather-fc-http-service
+        description: 'fc-http-service for weahterApp'
+        internetAccess: true
+      function:
+        name: express
+        description: this is an api for wheather data
+        runtime: nodejs12
+        codeUri: ./functions/index
+        handler: index.handler
+        memorySize: 256
+        timeout: 10
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            autoType: anoymous
+            methods:
+              - GET
+              - POST
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /*
