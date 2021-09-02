@@ -36,7 +36,7 @@ services:
         name: express
         description: this is an api for wheather data
         runtime: nodejs12
-        codeUri: ./functions/index
+        codeUri: functions
         handler: index.handler
         memorySize: 256
         timeout: 10
@@ -44,7 +44,7 @@ services:
         - name: httpTrigger
           type: http
           config:
-            autoType: anoymous
+            authType: anonymous
             methods:
               - GET
               - POST
