@@ -13,7 +13,7 @@ services:
     props:
       domain: ${vars.domain}
       targetStaticDir: 'code/dist' # 构建出的静态资源目录
-      releaseDir: '_fc_release' # 用来发布到fc 上的目录，不需要修改
+      releaseDir: '_fc_release' # 用来发布到fc上的目录，不需要修改
       service: 'website-test'
       function: 'website-test'
       port: 9000
